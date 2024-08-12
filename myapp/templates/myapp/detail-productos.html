@@ -2,14 +2,36 @@
 
 {% block content %}
 
+<!-- Containers -->
 <div class="container-fluid p-5 bg-secondary text-white text-center">
-  <h1>{{ producto.name }}</h1>
+  <h1>Detalles del Producto</h1>
 </div>
-<div class="container mt-3">
-  <h2>{{ producto.code }}</h2>
-  <p> {{ producto.brand }}</p>
-  <p> {{ producto.reference }}</p>
-  <p> {{ producto.description }}</p>
+
+<div class="container mt-4">
+  <!-- Card Horizontal -->
+  <div class="container">
+      <div class="card mb-3" style="max-width: auto; height: auto;">
+          <div class="row g-0 justify-content-center">
+            <div class="col-md-7">
+              <img src="https://cdn.pixabay.com/photo/2022/12/17/14/20/vitamins-7661774_1280.jpg" class="img-fluid rounded-start" alt="medicina">
+            </div>
+            <div class="col-md-5">
+              <div class="card-body">
+                <h5 class="card-title">{{ producto.name }}</h5><br>
+                <p class="card-text"><strong>Precio:</strong> {{ producto.price }}</p>
+                <p class="card-text"><strong>Codigo:</strong> {{ producto.code }}</p>
+                <p class="card-text"><strong>Marca:</strong> {{ producto.brand }}</p>
+                <p class="card-text"><strong>Referencia:</strong> {{ producto.reference }}</p>
+                <p class="card-text"><strong>Descripción:</strong> {{ producto.description }}</p>
+                <p class="card-text"><strong>Lote:</strong> {{ producto.batch }}</p>
+                <p class="card-text"><strong>Fabricación:</strong> {{ producto.manufacturing }}</p>
+                <p class="card-text"><strong>Expedición:</strong> {{ producto.expedition }}</p>
+                <p class="card-text"><strong>Categoria:</strong> {{ producto.categoria }}</p>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
 </div>
 
 {% endblock %}
