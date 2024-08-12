@@ -1,0 +1,15 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid p-5 bg-secondary text-white text-center">
+  <h1>{{ producto.name }}</h1>
+</div>
+<div class="container mt-3">
+  <h2>{{ producto.code }}</h2>
+  <p> {{ producto.brand }}</p>
+  <p> {{ producto.reference }}</p>
+  <p> {{ producto.description }}</p>
+</div>
+
+{% endblock %}

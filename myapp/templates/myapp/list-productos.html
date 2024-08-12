@@ -1,0 +1,40 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+
+<!-- Containers -->
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>Lista Productos</h1>
+</div>
+
+<!-- Table -->
+<div class="container mt-3 mb-3 ms-3 me-3"></div>
+    <div class="row justify-content-md-center"></div>
+        <div class="col"></div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Referencia</th>
+                    <th scope="col">Precio</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for producto in productos %}
+                <tr>
+                    <td><a href="/lista_productos/{{producto.code}}">{{ producto.code }}</a> </td>
+                    <td>{{ producto.name }}</td>
+                    <td>{{ producto.brand }}</td>
+                    <td>{{ producto.reference }}</td>
+                    <td>{{ producto.price }}</td>
+                </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
