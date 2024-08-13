@@ -29,3 +29,9 @@ def index(request):
         
     }
     return render(request, 'myapp/index.html', context)
+
+def dashboard(request):
+    context = {
+        
+    }
+    return render(request, 'myapp/dashboard.html', context)
