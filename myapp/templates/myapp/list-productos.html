@@ -8,6 +8,20 @@
 </div>
 
 <div class="container mt-4">
+    <!-- Contenedor del buscador -->
+    <div class="mt-2 mb-2">
+        <form action="#" method="POST">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                  </form>
+                </div>
+            </nav>
+        </form>
+    </div>
+
     <!-- Contenedor de la tabla -->
     <div class="mt-2 mb-2 ms-2 me-2">
         <!-- Tabla -->
@@ -18,7 +32,8 @@
                     <th scope="col" class="text-light bg-secondary">Producto</th>
                     <th scope="col" class="text-light bg-secondary">Marca</th>
                     <th scope="col" class="text-light bg-secondary">Referencia</th>
-                    <th scope="col" class="text-light bg-secondary">Precio</th>    
+                    <th scope="col" class="text-light bg-secondary">Precio</th>
+                    <th scope="col" class="text-light bg-secondary">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +44,7 @@
                 <td>{{ producto.brand }}</td>
                 <td>{{ producto.reference }}</td>
                 <td>{{ producto.price }}</td>
+                <td><a href="/list_productos/{{producto.code}}/delete">Eliminar</a> / <a href="/list_productos/{{producto.code}}/update">Actualizar</a></td>
             </tr>
             {% endfor %}
             </tbody>
