@@ -21,7 +21,7 @@
             <tbody>
             {% for categoria in categorias %}   
             <tr>
-                <td>{{ categoria.id }}</a> </td>
+                <td> <a href="/list_categorias/{{categoria.id}}"> {{ categoria.id }}</td>
                 <td>{{ categoria.name }}</td>
             </tr>
             {% endfor %}
