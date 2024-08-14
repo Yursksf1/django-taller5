@@ -16,13 +16,15 @@
                 <tr>
                     <th scope="col" class="text-light bg-secondary">ID</th>
                     <th scope="col" class="text-light bg-secondary">Categoria</th>   
+                    <th scope="col" class="text-light bg-secondary">Numero de productos</th>   
                 </tr>
             </thead>
             <tbody>
             {% for categoria in categorias %}   
             <tr>
-                <td> <a href="/list_categorias/{{categoria.id}}"> {{ categoria.id }}</td>
+                <td> <a href="/list_categorias/{{categoria.id}}"/> {{ categoria.id }}</td>
                 <td>{{ categoria.name }}</td>
+                <td>{{ categoria.producto_set.all | length }}</td>
             </tr>
             {% endfor %}
             </tbody>
