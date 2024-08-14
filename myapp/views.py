@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from django.shortcuts import render
 from myapp.models import Producto, Categoria
 
@@ -76,7 +77,35 @@ def index(request):
     return render(request, 'myapp/index.html', context)
 
 def dashboard(request):
+
+    today = datetime.now().today().date()
+    fecha_futura = today + timedelta(days=60) # agregamos 2 meses
+
+    productos_por_vencer = Producto.objects.filter(expedition__lt=fecha_futura).count()
+
     context = {
-        
+        'productos_por_vencer': productos_por_vencer,
     }
     return render(request, 'myapp/dashboard.html', context)
+
+
+def prodcuts_por_vencer(request):
+    today = datetime.now().today().date()
+    fecha_futura = today + timedelta(days=60) # agregamos 2 meses
+
+    productos = []
+    context = {}
+    product_query = Producto.objects
+    product_query = product_query.filter(expedition__lt=fecha_futura)
+
+    filtro = request.GET.get('search')
+    if filtro:
+        product_query = product_query.filter(name__icontains=filtro)
+
+    productos = product_query.all()
+
+    context = {
+        "productos": productos,
+        "today": today
+    }
+    return render(request, 'myapp/list-productos.html', context)
