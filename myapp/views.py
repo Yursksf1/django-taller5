@@ -10,6 +10,17 @@ def list_categorias(request):
     }
     return render(request, 'myapp/list-categorias.html', context)
 
+def detail_categoria(request, id):
+    categoria = Categoria.objects.filter(id=id).first()
+    productos = Producto.objects.filter(categoria_id=id).all()
+
+    context = {
+        "categoria": categoria,
+        "productos": productos
+    }
+    return render(request, 'myapp/detail-categoria.html', context)
+
+
 def list_productos(request):
     productos = []
     filtro = request.GET.get('search')

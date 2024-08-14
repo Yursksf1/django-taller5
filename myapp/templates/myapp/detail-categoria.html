@@ -1,0 +1,55 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+
+<!-- Containers -->
+<div class="container-fluid p-5 bg-success text-white text-center">
+  <h1>Detalles de categoria</h1>
+</div>
+
+<div class="container mt-4">
+  <!-- Card Horizontal -->
+  <div class="container">
+      <div class="card mb-3" style="max-width: auto; height: auto;">
+          <div class="row g-0 justify-content-center">
+            <div class="col-md-5">
+              <div class="card-body">
+                <h5 class="card-title">{{ categoria.name }}</h5><br>
+                <p class="card-text"><strong>Descripción:</strong> {{ categoria.description }}</p>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+    <!-- Contenedor de la tabla -->
+    <div class="mt-2 mb-2 ms-2 me-2">
+        <!-- Tabla -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-light bg-secondary">Codigo</th>
+                    <th scope="col" class="text-light bg-secondary">Producto</th>
+                    <th scope="col" class="text-light bg-secondary">Marca</th>
+                    <th scope="col" class="text-light bg-secondary">Referencia</th>
+                    <th scope="col" class="text-light bg-secondary">Precio</th>
+                    <th scope="col" class="text-light bg-secondary">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for producto in productos %}   
+            <tr>
+                <td><a href="/list_productos/{{producto.code}}">{{ producto.code }}</a> </td>
+                <td>{{ producto.name }}</td>
+                <td>{{ producto.brand }}</td>
+                <td>{{ producto.reference }}</td>
+                <td>{{ producto.price }}</td>
+                <td><a href="/list_productos/{{producto.code}}/delete">Eliminar</a> / <a href="/list_productos/{{producto.code}}/update">Actualizar</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
