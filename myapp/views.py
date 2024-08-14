@@ -23,15 +23,17 @@ def detail_categoria(request, id):
 
 def list_productos(request):
     productos = []
+    context = {}
     filtro = request.GET.get('search')
     if filtro:
         productos = Producto.objects.filter(name__icontains=filtro).all()
     else:
         productos = Producto.objects.all()
-        context = {
-            "productos": productos
-        }
-        return render(request, 'myapp/list-productos.html', context)
+
+    context = {
+        "productos": productos
+    }
+    return render(request, 'myapp/list-productos.html', context)
 
 def detail_productos(request, id):
     producto = Producto.objects.filter(code=id).first()
