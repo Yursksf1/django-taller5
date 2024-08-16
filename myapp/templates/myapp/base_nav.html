@@ -17,9 +17,24 @@
               <li class="nav-item">
                 <a class="nav-link active" href="/list_productos">Productos</a>
               </li>
+                    {% if user.is_authenticated %}
+
               <li class="nav-item">
                 <a class="nav-link active" href="/dashboard">Dashboard</a>
               </li>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+
+                <li class="nav-item">
+                  <a class="nav-link active" href="/admin/logout/">Salir</a>
+                </li>
+                {% else %}
+
+                <li class="nav-item">
+                  <a class="nav-link active" href="admin/login">Ingresar</a>
+                </li>
+                  {% endif %}
             </ul>
           </div>
         </div>
