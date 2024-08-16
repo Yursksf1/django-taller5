@@ -76,6 +76,37 @@ def index(request):
     }
     return render(request, 'myapp/index.html', context)
 
+def add_productos(request):
+    context = {
+        
+    }
+    method = request.method
+    if method == 'POST':
+        data = request.POST
+        code = data.get('code')
+        name = data.get('name')
+        brand = data.get('brand')
+        reference = data.get('reference')
+        description = data.get('description')
+        price = data.get('price')
+        batch = data.get('batch')
+        manufacturing = data.get('manufacturing')
+        expedition = data.get('expedition')
+        categoria_id = data.get('categoria')
+
+        producto = Producto(
+            code=code,
+            name=name,
+            brand=brand,
+            reference=reference,
+            description=description,
+            price=price,
+            batch=batch,
+        )
+        producto.save()
+
+    return render(request, 'myapp/add-producto.html', context)
+
 def dashboard(request):
 
     today = datetime.now().today().date()

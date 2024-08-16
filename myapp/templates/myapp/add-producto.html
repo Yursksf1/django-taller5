@@ -1,0 +1,62 @@
+{% extends "myapp/base.html" %}
+
+{% block content %}
+
+<!-- Containers -->
+<div class="container-fluid p-5 bg-success text-white text-center">
+  <h1>Agregar nuevo Producto</h1>
+</div>
+
+<div class="container mt-4">
+  <!-- Card Horizontal -->
+  <div class="container">
+
+      <form action="#" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">code</label>
+          <input type="text" class="form-control" name="code" id="code" value="">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">name</label>
+          <input type="text" class="form-control" name="name" id="name" value="">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">brand</label>
+          <input type="text" class="form-control" name="brand" id="brand" value="">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">reference</label>
+          <input type="text" class="form-control" name="reference" id="reference" value="">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">description</label>
+          <input type="text" class="form-control" name="description" id="description" value="">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">price</label>
+          <input type="number" class="form-control" name="price" id="price" value="">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">batch</label>
+          <input type="text" class="form-control" name="batch" id="batch" value="">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">manufacturing</label>
+          <input type="text" class="form-control" name="manufacturing" id="manufacturing" value="">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">expedition</label>
+          <input type="text" class="form-control" name="expedition" id="expedition" value="">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">categoria</label>
+          <input type="text" class="form-control" name="categoria" id="categoria" value="">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+  </div>
+</div>
+
+{% endblock %}
