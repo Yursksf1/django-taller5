@@ -4,8 +4,11 @@
 
 <!-- Containers -->
 <div class="container-fluid p-5 bg-success text-white text-center">
-  <h1>Lista Productos</h1> 
-    <a href="/list_productos/add" class="btn btn-info"> Agregar </a>
+  <h1>Lista Productos</h1>
+
+    {% if user.is_authenticated %}
+            <a href="/list_productos/add" class="btn btn-info"> Agregar </a>
+    {% endif %}
 </div>
 
 <div class="container mt-4">

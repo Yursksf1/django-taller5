@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from django.shortcuts import render
 from myapp.models import Producto, Categoria
 from myapp.forms import ProductoForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -77,6 +78,7 @@ def index(request):
     }
     return render(request, 'myapp/index.html', context)
 
+@login_required
 def add_productos(request):
     form = ProductoForm()
     context = {
