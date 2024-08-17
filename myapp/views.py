@@ -3,6 +3,7 @@ from django.shortcuts import render
 from myapp.models import Producto, Categoria
 from myapp.forms import ProductoForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -27,14 +28,18 @@ def detail_categoria(request, id):
 def list_productos(request):
     productos = []
     context = {}
+
     filtro = request.GET.get('search')
     if filtro:
         productos = Producto.objects.filter(name__icontains=filtro).all()
     else:
         productos = Producto.objects.all()
 
+    paginador = Paginator(productos, 10)
+    pagina_num = request.GET.get('page', )
+    pagina_objetos = paginador.get_page(pagina_num)
     context = {
-        "productos": productos
+        "productos": pagina_objetos
     }
     return render(request, 'myapp/list-productos.html', context)
 
