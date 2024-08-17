@@ -36,7 +36,7 @@ def list_productos(request):
         productos = Producto.objects.all()
 
     paginador = Paginator(productos, 10)
-    pagina_num = request.GET.get('page', )
+    pagina_num = request.GET.get('page', 1)
     pagina_objetos = paginador.get_page(pagina_num)
     context = {
         "productos": pagina_objetos
